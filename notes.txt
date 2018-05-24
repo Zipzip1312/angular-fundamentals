@@ -1,0 +1,39 @@
+
+----------------------------------
+TypeScript Features
+----------------------------------
+Static Typing (adding data types)
+  let name : string
+
+Interfaces (shape of object)
+  interface ICat{
+    name:string
+    age:number
+  }
+
+  let fluffy:ICat
+
+    if set age?:number -> this will make property optional
+
+ClassProperties
+  class Cat{
+    name:string
+    constructor(name){
+      this.name = name
+    }
+  }
+
+Public and Private accessibility
+  class Cat{
+    constructor(private name, private age){
+
+    }
+  }
+----------------------------------
+Initing new Angular project:
+  ng new project-name
+
+----------------------------------
+
+
+

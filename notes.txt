@@ -33,6 +33,7 @@ Public and Private accessibility
 Initing new Angular project:
   ng new project-name
 
+To add static files, declare them in angular.json (styles/scripts)
 ----------------------------------
 
 

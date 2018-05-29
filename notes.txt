@@ -61,7 +61,25 @@ Styling Components
 use styles: [` for inline styling `]
 or
 styleUrls: ['./path-to-style.css']
+
 ----------------------------------
+Interpolation, Expressions, Events, Statements
+----------------------------------
+{{user.name}} - Interpolation
+[src]="user.imageSrc" - Property Binding
+(click)="doSomething()" - Event Binding
+----------------------------------
+ngFor
+<component-name *ngFor="let event of events"></component-name>
+----------------------------------
+Save navigation
+{{event?.name}} - if event is null or undefined - no errors will occur
+{{event?.location?.address}}
+----------------------------------
+ngIf
+*ngIf="event?.location" - if expression is true ...
+----------------------------------
+
 ----------------------------------
 ----------------------------------
 

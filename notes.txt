@@ -35,10 +35,32 @@ Initing new Angular project:
 
 To add static files, declare them in angular.json (styles/scripts)
 ----------------------------------
-Using inputs
+Using inputs (pass data from parent to child component)
   Create "@Input() event:any" in exported component Class
   and declare this event in html that passes this event to component
   <events-thumbnail [event]="event1"></events-thumbnail>
+----------------------------------
+Using outputs (pass data from child to parent component)
+  In child:
+    declare event in html: (click)="handleClickMe()"
+    @Output() eventClick = new EventEmitter()
+    and func to handle this event
+    handleClickMe(){ this.eventClick.emit('foo'); }
+  In parent:
+    register event in html component (eventClick)="handleEventClicked($event)"
+    and declare handler for it: handleEventClicked(data){ ..staff }
+----------------------------------
+Template variables
+Another way to handle components comunication like @Input() and @Output()
+Just declare variable with #varName in component html:
+  <component-tag #componentShortName></component-tag>
+And then access to component by this var:
+  {{componentShortName.someProp}} or {{componentShortName.someMethod()}}
+----------------------------------
+Styling Components
+use styles: [` for inline styling `]
+or
+styleUrls: ['./path-to-style.css']
 ----------------------------------
 ----------------------------------
 ----------------------------------

@@ -2,6 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'event-thumbnail',
+  styles: [`
+    .pad-left{padding-left:15px;}
+    .well div{
+      color: #bbb;
+    }
+  `],
   template: `
     <div class="well hoverwell thumbnail">
       <h2>{{event.name}}</h2>
@@ -10,8 +16,7 @@ import { Component, OnInit, Input } from '@angular/core';
       <div>Price: \${{ event.price }}</div>
       <div>
         <span>Location: {{event.location.adress}}</span>
-        <span>&nbsp;</span>
-        <span>{{event.location.city}}, {{event.location.country}}</span>
+        <span class="pad-left">{{event.location.city}}, {{event.location.country}}</span>
       </div>
     </div>
   `

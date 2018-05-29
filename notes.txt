@@ -78,8 +78,25 @@ Save navigation
 ----------------------------------
 ngIf
 *ngIf="event?.location" - if expression is true ...
+[hidden]="!event?.location" - hide DOM element if true
+----------------------------------
+ngSwitchCase
+<div [ngSwitch]="event?.time">
+  <div *ngSwitchCase="'8:00 am'">Early Start</div>
+  <div *ngSwitchDefault>Normal Start</div>
+</div>
+
+----------------------------------
+ngClass / ngStyle (works the same as ngClass)
+[class.green]="event?.time === '8:00 am'" - adds class if condition true
+[ngClass]="{
+  green: event?.time === '8:00 am',
+  bold: event?.time === '10:00 am'}" - will add class(es) if condition return true
 ----------------------------------
 
+----------------------------------
+----------------------------------
+----------------------------------
 ----------------------------------
 ----------------------------------
 

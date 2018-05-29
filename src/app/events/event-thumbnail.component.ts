@@ -8,12 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
     .well div{
       color: #bbb;
     }
+    .well div.green{color: green}
+    .bold {font-weight: 700;}
   `],
   template: `
     <div class="well hoverwell thumbnail">
       <h2>{{event.name}}</h2>
       <div>Date: {{event.date}}</div>
-      <div>Time: {{event.time}}</div>
+      <div [ngClass]="{green: event?.time === '8:00 am', bold: event?.time === '10:00 am'}" [ngSwitch]="event?.time">
+      Time: {{event.time}}
+      <span *ngSwitchCase="'8:00 am'"> (Early Start)</span>
+      <span *ngSwitchCase="'10:00 am'"> (Late Start)</span>
+      <span *ngSwitchDefault> (Normal Start)</span>
+      </div>
       <div>Price: \${{ event.price }}</div>
       <div *ngIf="event?.location">
         <span>Location: {{event.location.adress}}</span>

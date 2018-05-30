@@ -63,7 +63,7 @@ or
 styleUrls: ['./path-to-style.css']
 
 ----------------------------------
-Interpolation, Expressions, Events, Statements
+INTERPOLATION, EXPRESSIONS, EVENTS, STATEMENTS
 ----------------------------------
 {{user.name}} - Interpolation
 [src]="user.imageSrc" - Property Binding
@@ -95,7 +95,25 @@ ngClass / ngStyle (works the same as ngClass)
 ----------------------------------
 
 ----------------------------------
+SERVICES
 ----------------------------------
+@Injectable() - required when service injects another service
+like when service injected in constructor
+----------------------------------
+Services must be registred as a providers in app.module
+----------------------------------
+Make services calls from ngOnInit() method, not in constructor
+----------------------------------
+Declare variable for third party libraries like toastr
+for TypeScript to know that var is in scope already
+  declare let toastr
+It is good to create services for that kind of things
+----------------------------------
+
+----------------------------------
+ROUTING
+----------------------------------
+
 ----------------------------------
 ----------------------------------
 ----------------------------------

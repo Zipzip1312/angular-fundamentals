@@ -1,3 +1,4 @@
+import { EventsListResolverService } from './events/events-list-resolver.service';
 import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 import { CreateEventComponent } from './events/create-event.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
@@ -35,13 +36,14 @@ import { Error404Component } from './errors/404.component';
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
-    }
+    },
+    EventsListResolverService
   ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
 
-export function checkDirtyState(createEvent:CreateEventComponent){
+export function checkDirtyState(createEvent: CreateEventComponent) {
   if (createEvent.isDirty)
     window.confirm('Leave without saving event?');
   return true

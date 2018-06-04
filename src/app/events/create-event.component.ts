@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 })
 
 export class CreateEventComponent implements OnInit {
+  isDirty: boolean = true // if form not filled out
   constructor( private route:Router ) { }
 
   ngOnInit() { }

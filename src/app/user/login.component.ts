@@ -3,10 +3,17 @@ import { AuthService } from './auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  templateUrl: 'login.component.html'
+  templateUrl: 'login.component.html',
+  styles: [`
+    em{float:right;color:red}
+  `]
 })
 
 export class LoginComponent implements OnInit {
+
+  userName
+  password
+  mouseoverLogin
 
   constructor( private authService:AuthService, private router: Router ) { }
 

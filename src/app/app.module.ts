@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventsListResolverService } from './events/events-list-resolver.service';
 import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 import { CreateEventComponent } from './events/create-event.component';
@@ -19,6 +20,8 @@ import { AuthService } from './user/auth.service';
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [

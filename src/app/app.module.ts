@@ -1,3 +1,4 @@
+import { DurationPipe } from './events/shared/duration.pipe';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
@@ -37,7 +38,8 @@ import { AuthService } from './user/auth.service';
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    NavBarComponent
+    NavBarComponent,
+    DurationPipe
   ],
   providers: [
     EventService,

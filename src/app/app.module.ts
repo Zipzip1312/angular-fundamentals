@@ -15,11 +15,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { EventsAppComponent } from './events-app.component';
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
+
+declare let toastr: Toastr
 
 @NgModule({
   imports: [
@@ -44,7 +46,7 @@ import { AuthService } from './user/auth.service';
   providers: [
     EventService,
     EventRouteActivatorService,
-    ToastrService,
+    { provide: TOASTR_TOKEN, useValue: toastr},
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState

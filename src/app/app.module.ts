@@ -1,3 +1,4 @@
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +36,7 @@ import { AuthService } from './user/auth.service';
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
+    CollapsibleWellComponent,
     NavBarComponent
   ],
   providers: [

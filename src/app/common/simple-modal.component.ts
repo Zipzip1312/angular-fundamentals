@@ -29,10 +29,13 @@ export class SimpleModalComponent {
   @Input() title: string
   @Input() elementId: string
   @ViewChild('modalcontainer') containerEl: ElementRef
+  @Input() closeOnBodyClick: string
 
   constructor( @Inject(JQ_TOKEN) private $: any ) { }
 
   closeModal(){
-    this.$(this.containerEl.nativeElement).modal('hide');
+    if (this.closeOnBodyClick.toLocaleLowerCase() === 'true') {
+      this.$(this.containerEl.nativeElement).modal('hide');
+    }
   }
 }

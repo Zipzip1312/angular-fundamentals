@@ -1,3 +1,4 @@
+import { JQ_TOKEN } from './common/jQuery.service';
 import { DurationPipe } from './events/shared/duration.pipe';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
@@ -21,7 +22,8 @@ import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 
-declare let toastr: Toastr
+let toastr: Toastr = window['toastr'];
+let jQuery = window['$'];
 
 @NgModule({
   imports: [
@@ -46,6 +48,7 @@ declare let toastr: Toastr
   providers: [
     EventService,
     EventRouteActivatorService,
+    { provide: JQ_TOKEN, useValue: jQuery},
     { provide: TOASTR_TOKEN, useValue: toastr},
     {
       provide: 'canDeactivateCreateEvent',

@@ -29,7 +29,7 @@ export class EventService {
   }
 
   searchSessions(searchTerm: string){
-    var term = searchTerm.toLocaleLowerCase()
+    var term = (!!searchTerm) ? searchTerm.toLocaleLowerCase() : ' ';
     var results: ISession[] = []
 
     EVENTS.forEach(event => {

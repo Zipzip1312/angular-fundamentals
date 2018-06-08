@@ -1,3 +1,4 @@
+import { VoterService } from './events/event-details/voter.service';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
 import { JQ_TOKEN } from './common/jQuery.service';
 import { DurationPipe } from './events/shared/duration.pipe';
@@ -23,6 +24,7 @@ import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { SimpleModalComponent } from './common/simple-modal.component';
+import { UpvoteComponent } from './events/event-details/upvote.component';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -46,6 +48,7 @@ let jQuery = window['$'];
     CollapsibleWellComponent,
     NavBarComponent,
     SimpleModalComponent,
+    UpvoteComponent,
     DurationPipe,
     ModalTriggerDirective
   ],
@@ -59,7 +62,8 @@ let jQuery = window['$'];
       useValue: checkDirtyState
     },
     EventsListResolverService,
-    AuthService
+    AuthService,
+    VoterService
   ],
   bootstrap: [EventsAppComponent]
 })

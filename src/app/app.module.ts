@@ -1,3 +1,4 @@
+import { ModalTriggerDirective } from './common/modal-trigger.directive';
 import { JQ_TOKEN } from './common/jQuery.service';
 import { DurationPipe } from './events/shared/duration.pipe';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
+import { SimpleModalComponent } from './common/simple-modal.component';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -43,7 +45,9 @@ let jQuery = window['$'];
     SessionListComponent,
     CollapsibleWellComponent,
     NavBarComponent,
-    DurationPipe
+    SimpleModalComponent,
+    DurationPipe,
+    ModalTriggerDirective
   ],
   providers: [
     EventService,

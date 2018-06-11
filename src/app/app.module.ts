@@ -1,3 +1,4 @@
+import { EventsResolverService } from './events/event-resolver.service';
 import { VoterService } from './events/event-details/voter.service';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
 import { JQ_TOKEN } from './common/jQuery.service';
@@ -7,7 +8,7 @@ import { SessionListComponent } from './events/event-details/session-list.compon
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventsListResolverService } from './events/events-list-resolver.service';
-import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
+// import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 import { CreateEventComponent } from './events/create-event.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { EventService } from './events/shared/event.service';
@@ -59,7 +60,7 @@ let jQuery = window['$'];
   ],
   providers: [
     EventService,
-    EventRouteActivatorService,
+    // EventRouteActivatorService,
     { provide: JQ_TOKEN, useValue: jQuery},
     { provide: TOASTR_TOKEN, useValue: toastr},
     {
@@ -67,6 +68,7 @@ let jQuery = window['$'];
       useValue: checkDirtyState
     },
     EventsListResolverService,
+    EventsResolverService,
     AuthService,
     VoterService
   ],

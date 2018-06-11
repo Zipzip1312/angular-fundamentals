@@ -27,6 +27,10 @@ import { Component, OnInit, Input } from '@angular/core';
         <span>Location: {{event.location.adress}}</span>
         <span class="pad-left">{{event.location.city}}, {{event.location.country}}</span>
       </div>
+      <div>Price: \${{ event.price }}</div>
+      <div *ngIf="event?.onlineUrl">
+        <span>Online URL: {{event.onlineUrl}}</span>
+      </div>
     </div>
   `
 })

@@ -17,11 +17,9 @@ export class EventService {
       //handleError [] - default result
   }
 
-  private handleError<T>( operation = 'operation', result?: T){
-    return (error: any): Observable<T> => {
-      console.log(error);
-      return Observable.of(result as T);
-    }
+  getEvent(id: number): Observable<IEvent> {
+    return this.http.get<IEvent>('/api/events/' + id)
+      .pipe(catchError(this.handleError<IEvent>('getEvents')));
   }
 
   // getEvents():Observable<IEvent[]>{
@@ -33,9 +31,9 @@ export class EventService {
   //   return subject;
   // }
 
-  getEvent(id:number):IEvent{
-    return EVENTS.find(event => event.id === id);
-  }
+  // getEvent(id:number):IEvent{
+  //   return EVENTS.find(event => event.id === id);
+  // }
 
   saveEvent(event){
     event.id = 999
@@ -70,6 +68,13 @@ export class EventService {
     }, 100);
 
     return emitter;
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log(error);
+      return Observable.of(result as T);
+    }
   }
 }
 

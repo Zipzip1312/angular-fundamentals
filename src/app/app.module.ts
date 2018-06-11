@@ -27,6 +27,8 @@ import { SimpleModalComponent } from './common/simple-modal.component';
 import { UpvoteComponent } from './events/event-details/upvote.component';
 import { ValidateLocationDirective } from './events/location-validator.directive';
 
+import { HttpClientModule } from "@angular/common/http";
+
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
 
@@ -35,7 +37,8 @@ let jQuery = window['$'];
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   declarations: [
     EventsAppComponent,

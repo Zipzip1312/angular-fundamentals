@@ -25,6 +25,7 @@ import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { SimpleModalComponent } from './common/simple-modal.component';
 import { UpvoteComponent } from './events/event-details/upvote.component';
+import { ValidateLocationDirective } from './events/location-validator.directive';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -50,7 +51,8 @@ let jQuery = window['$'];
     SimpleModalComponent,
     UpvoteComponent,
     DurationPipe,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    ValidateLocationDirective
   ],
   providers: [
     EventService,

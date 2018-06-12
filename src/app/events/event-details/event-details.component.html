@@ -54,7 +54,14 @@
   </div>
 </div>
 
-<session-list *ngIf="!addMode" [sessions]="event?.sessions" [filterBy]="filterBy" [sortBy]="sortBy"></session-list>
+<session-list
+  *ngIf="!addMode"
+  [sessions]="event?.sessions"
+  [filterBy]="filterBy"
+  [sortBy]="sortBy"
+  [eventId]="event?.id">
+</session-list>
+
 <!-- $event is a session obj -->
 <create-session
   *ngIf="addMode"

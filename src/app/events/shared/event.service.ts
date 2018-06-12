@@ -28,6 +28,11 @@ export class EventService {
       .pipe(catchError(this.handleError<IEvent>('saveEvent')));
   }
 
+  searchSessions(searchTerm: string): Observable<ISession[]> {
+    return this.http.get<ISession[]>('/api/sessions/search?search=' + searchTerm)
+      .pipe(catchError(this.handleError<ISession[]>('searchSessions')));
+  }
+
   // getEvents():Observable<IEvent[]>{
   //   // return EVENTS
   //   let subject = new Subject<IEvent[]>()
@@ -52,29 +57,29 @@ export class EventService {
   //   EVENTS[index] = event
   // }
 
-  searchSessions(searchTerm: string){
-    var term = (!!searchTerm) ? searchTerm.toLocaleLowerCase() : ' ';
-    var results: ISession[] = []
+  // searchSessions(searchTerm: string){
+  //   var term = (!!searchTerm) ? searchTerm.toLocaleLowerCase() : ' ';
+  //   var results: ISession[] = []
 
-    EVENTS.forEach(event => {
-      var machedSessions = event.sessions.filter(
-        session => session.name.toLocaleLowerCase().indexOf(term) > -1
-      )
-      machedSessions = machedSessions.map(((session:any) => { // add event ID to search session result
-        session.eventId = event.id
-        return session;
-      }))
+  //   EVENTS.forEach(event => {
+  //     var machedSessions = event.sessions.filter(
+  //       session => session.name.toLocaleLowerCase().indexOf(term) > -1
+  //     )
+  //     machedSessions = machedSessions.map(((session:any) => { // add event ID to search session result
+  //       session.eventId = event.id
+  //       return session;
+  //     }))
 
-      results = results.concat(machedSessions);
-    })
+  //     results = results.concat(machedSessions);
+  //   })
 
-    var emitter = new EventEmitter(true); // true - to deliver events synchronously
-    setTimeout(() => {
-      emitter.emit(results)
-    }, 100);
+  //   var emitter = new EventEmitter(true); // true - to deliver events synchronously
+  //   setTimeout(() => {
+  //     emitter.emit(results)
+  //   }, 100);
 
-    return emitter;
-  }
+  //   return emitter;
+  // }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

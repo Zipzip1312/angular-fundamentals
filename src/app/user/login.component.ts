@@ -11,9 +11,10 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class LoginComponent implements OnInit {
 
-  userName
-  password
+  userName: string = 'johnpapa'
+  password: any = 123
   mouseoverLogin
+  loginInvalid: boolean = false
 
   constructor( private authService:AuthService, private router: Router ) { }
 
@@ -22,7 +23,13 @@ export class LoginComponent implements OnInit {
   login(formValue){
     // console.log(formValue.userName, formValue.password);
     this.authService.loginUser(formValue.userName, formValue.password)
-    this.router.navigate(['events']);
+      .subscribe(resp => {
+        if (!resp) { // invalid login ( returns false )
+          this.loginInvalid = true
+        }else{
+          this.router.navigate(['events']);
+        }
+      })
   }
 
   cancel(){

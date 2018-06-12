@@ -77,7 +77,8 @@ let jQuery = window['$'];
 export class AppModule { }
 
 export function checkDirtyState(createEvent: CreateEventComponent) {
-  if (createEvent.isDirty)
-    window.confirm('Leave without saving event?');
-  return true
+  // if (createEvent.isDirty)
+  //   if (window.confirm('Leave without saving event?'))
+  //     return true
+  //   return false
 }

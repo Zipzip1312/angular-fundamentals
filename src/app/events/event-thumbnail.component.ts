@@ -36,5 +36,5 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class EventThumbnailComponent {
-  @Input() event:IEvent
+  @Input() event: IEvent;
 }

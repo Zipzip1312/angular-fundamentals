@@ -28,10 +28,10 @@ import { SimpleModalComponent } from './common/simple-modal.component';
 import { UpvoteComponent } from './events/event-details/upvote.component';
 import { ValidateLocationDirective } from './events/location-validator.directive';
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
-let toastr: Toastr = window['toastr'];
-let jQuery = window['$'];
+const toastr: Toastr = window['toastr'];
+const jQuery = window['$'];
 
 @NgModule({
   imports: [
@@ -79,6 +79,6 @@ export class AppModule { }
 export function checkDirtyState(createEvent: CreateEventComponent) {
   if (createEvent.isDirty)
     if (window.confirm('Leave without saving event?'))
-      return true
-    return false
+      return true;
+    return false;
 }

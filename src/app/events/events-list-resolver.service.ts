@@ -5,9 +5,9 @@ import { Resolve } from '@angular/router';
 @Injectable()
 export class EventsListResolverService implements Resolve<any> {
 
-  constructor( private eventService:EventService ){}
+  constructor( private eventService: EventService ) {}
 
-  resolve(){
-    return this.eventService.getEvents()
+  resolve() {
+    return this.eventService.getEvents();
   }
 }

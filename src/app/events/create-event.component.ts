@@ -15,20 +15,20 @@ import { Router } from '@angular/router';
 })
 
 export class CreateEventComponent implements OnInit {
-  newEvent
-  isDirty: boolean = true // if form not filled out, process in app.module
-  constructor( private route:Router, private eventService:EventService ) { }
+  newEvent;
+  isDirty = true; // if form not filled out, process in app.module
+  constructor( private route: Router, private eventService: EventService ) { }
 
   ngOnInit() { }
 
-  saveEvent(formValues){
+  saveEvent(formValues) {
     this.eventService.saveEvent(formValues).subscribe(() => {
-      this.isDirty = false
-      this.route.navigate(['events'])
+      this.isDirty = false;
+      this.route.navigate(['events']);
     });
   }
 
-  cancel(){
-    this.route.navigate(['/events'])
+  cancel() {
+    this.route.navigate(['/events']);
   }
 }

@@ -1,5 +1,5 @@
 import { AuthService } from './auth.service';
-import { Component, OnInit, Inject } from '@angular/core'
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TOASTR_TOKEN, Toastr } from '../common/toastr.service';
@@ -17,17 +17,17 @@ import { TOASTR_TOKEN, Toastr } from '../common/toastr.service';
   `]
 })
 export class ProfileComponent implements OnInit {
-  profileForm: FormGroup
-  private firstName: FormControl
-  private lastName: FormControl
+  profileForm: FormGroup;
+  private firstName: FormControl;
+  private lastName: FormControl;
 
   constructor(
-    private authService:AuthService,
-    private router:Router,
+    private authService: AuthService,
+    private router: Router,
     @Inject(TOASTR_TOKEN) private toastr: Toastr
-  ){}
+  ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.firstName = new FormControl(this.authService.currentUser.firstName, [
       Validators.required,
       Validators.pattern('[a-zA-z].*')
@@ -39,31 +39,31 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  saveProfile(formValue){
+  saveProfile(formValue) {
     if (this.profileForm.valid) {
       this.authService.updateCurrentUser(formValue.firstName, formValue.lastName)
-        .subscribe(() =>{
+        .subscribe(() => {
           this.toastr.success('Profile Saved!');
-        })
+        });
       // this.router.navigate(['events']);
     }
   }
 
-  logout(){
+  logout() {
     this.authService.logout().subscribe(() => {
-      this.router.navigate(['/user/login'])
-    })
+      this.router.navigate(['/user/login']);
+    });
   }
 
-  validateLastName(){
-    return this.lastName.valid || this.lastName.untouched
+  validateLastName() {
+    return this.lastName.valid || this.lastName.untouched;
   }
 
-  validateFirstName(){
-    return this.firstName.valid || this.firstName.untouched
+  validateFirstName() {
+    return this.firstName.valid || this.firstName.untouched;
   }
 
-  cancel(){
+  cancel() {
     this.router.navigate(['events']);
   }
 }

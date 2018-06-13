@@ -1,6 +1,6 @@
 import { IEvent, ISession } from './event.model';
 import { Injectable, EventEmitter } from '@angular/core';
-import { Subject, Observable } from "rxjs";
+import { Subject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import 'rxjs/add/observable/of';
@@ -8,13 +8,13 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class EventService {
 
-  constructor( private http: HttpClient ){}
+  constructor( private http: HttpClient ) {}
 
   getEvents(): Observable<IEvent[]> {
     return this.http.get<IEvent[]>('/api/events')
       .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
-      //handleError getEvents - name of the method
-      //handleError [] - default result
+      // handleError getEvents - name of the method
+      // handleError [] - default result
   }
 
   getEvent(id: number): Observable<IEvent> {
@@ -23,7 +23,7 @@ export class EventService {
   }
 
   saveEvent(event) {
-    let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
+    const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
     return this.http.post<IEvent>('/api/events', event, options)
       .pipe(catchError(this.handleError<IEvent>('saveEvent')));
   }
@@ -37,7 +37,7 @@ export class EventService {
     return (error: any): Observable<T> => {
       console.log(error);
       return Observable.of(result as T);
-    }
+    };
   }
 
   // getEvents():Observable<IEvent[]>{

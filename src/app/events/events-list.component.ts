@@ -17,18 +17,18 @@ import { EventService } from './shared/event.service';
   `
 })
 
-export class EventsListComponent implements OnInit{
-  events:IEvent[]
+export class EventsListComponent implements OnInit {
+  events: IEvent[];
   constructor(
-    private eventService:EventService,
-    private route:ActivatedRoute
-  ){}
+    private eventService: EventService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     // this.events = this.eventService.getEvents();
     // this.eventService.getEvents().subscribe(events => {
     //   this.events = events
     // });
-    this.events = this.route.snapshot.data['events']
+    this.events = this.route.snapshot.data['events'];
   }
 }

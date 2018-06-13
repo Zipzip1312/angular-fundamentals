@@ -11,28 +11,28 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class LoginComponent implements OnInit {
 
-  userName: string = 'johnpapa'
-  password: any = 123
-  mouseoverLogin
-  loginInvalid: boolean = false
+  userName = 'johnpapa';
+  password: any = 123;
+  mouseoverLogin;
+  loginInvalid = false;
 
-  constructor( private authService:AuthService, private router: Router ) { }
+  constructor( private authService: AuthService, private router: Router ) { }
 
   ngOnInit() { }
 
-  login(formValue){
+  login(formValue) {
     // console.log(formValue.userName, formValue.password);
     this.authService.loginUser(formValue.userName, formValue.password)
       .subscribe(resp => {
         if (!resp) { // invalid login ( returns false )
-          this.loginInvalid = true
-        }else{
+          this.loginInvalid = true;
+        } else {
           this.router.navigate(['events']);
         }
-      })
+      });
   }
 
-  cancel(){
+  cancel() {
     this.router.navigate(['events']);
   }
 }

@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { ISession } from './../shared/event.model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { restrictedWords, restrictedWords2 } from "../shared/restricted-words.validator";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { restrictedWords, restrictedWords2 } from '../shared/restricted-words.validator';
 
 @Component({
   selector: 'create-session',
@@ -18,19 +18,19 @@ import { restrictedWords, restrictedWords2 } from "../shared/restricted-words.va
 })
 
 export class CreateSessionComponent implements OnInit {
-  @Output() saveNewSession = new EventEmitter()
-  @Output() cancelCreateNewSession = new EventEmitter()
-  newSessionForm: FormGroup
-  name: FormControl
-  presenter: FormControl
-  duration: FormControl
-  level: FormControl
-  abstract: FormControl
+  @Output() saveNewSession = new EventEmitter();
+  @Output() cancelCreateNewSession = new EventEmitter();
+  newSessionForm: FormGroup;
+  name: FormControl;
+  presenter: FormControl;
+  duration: FormControl;
+  level: FormControl;
+  abstract: FormControl;
 
-  constructor(private route:Router ) { }
+  constructor(private route: Router ) { }
 
-  saveSession(formValues){
-    let session: ISession = {
+  saveSession(formValues) {
+    const session: ISession = {
       id: undefined,
       name: formValues.name,
       presenter: formValues.presenter,
@@ -38,21 +38,21 @@ export class CreateSessionComponent implements OnInit {
       duration: +formValues.duration,
       abstract: formValues.abstract,
       voters: []
-    }
+    };
     this.saveNewSession.emit(session);
   }
 
   ngOnInit() {
-    this.name = new FormControl('', Validators.required)
-    this.presenter = new FormControl('', Validators.required)
-    this.duration = new FormControl('', Validators.required)
-    this.level = new FormControl('', Validators.required)
+    this.name = new FormControl('', Validators.required);
+    this.presenter = new FormControl('', Validators.required);
+    this.duration = new FormControl('', Validators.required);
+    this.level = new FormControl('', Validators.required);
     this.abstract = new FormControl('', [
         Validators.required,
         Validators.maxLength(400),
         restrictedWords,
         restrictedWords2(['bar', 'zoo'])
-      ])
+      ]);
 
     this.newSessionForm = new FormGroup({
       name: this.name,
@@ -60,11 +60,11 @@ export class CreateSessionComponent implements OnInit {
       duration: this.duration,
       level: this.level,
       abstract: this.abstract,
-    })
+    });
   }
 
-  cancel(){
+  cancel() {
     // this.route.navigate(['events'])
-    this.cancelCreateNewSession.emit()
+    this.cancelCreateNewSession.emit();
   }
 }

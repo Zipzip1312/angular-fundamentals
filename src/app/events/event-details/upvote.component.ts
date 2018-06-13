@@ -23,7 +23,7 @@ export class UpvoteComponent {
   @Input() voted: boolean;
   @Output() vote = new EventEmitter();
 
-  onClick(){
+  onClick() {
     this.vote.emit({});
   }
 }
